@@ -1,21 +1,7 @@
-import json
-
-from deeppavlov import build_model, train_model
-
-from constants import DOMAIN_OF_INTEREST
-
-from utils import get_dstc8_dialogue_files_list, configure_db, initialize_slotfill_model_config_w_paths, extract_slotfill_and_templates, \
-    train_test_val_split, train_test_val_write, base_dstc8_2_dstc2, add_db_api_calls, clear_data_dirs, mockify_slots_in_dialogues, \
-    configure_gobot_config
-import json
-import os
-from deeppavlov import build_model, train_model
-
+from deeppavlov import train_model
+from utils import *
 from constants import DOMAIN_OF_INTEREST, DATA_DIR, BOT_DATA_DIR
 
-from utils import get_dstc8_dialogue_files_list, configure_db, initialize_slotfill_model_config_w_paths, extract_slotfill_and_templates, \
-    train_test_val_split, train_test_val_write, base_dstc8_2_dstc2, add_db_api_calls, clear_data_dirs, mockify_slots_in_dialogues, \
-    configure_gobot_config
 
 clear_data_dirs()
 os.makedirs(DATA_DIR, exist_ok=True)
