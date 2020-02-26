@@ -2,7 +2,7 @@
 
 код с иллюстрацией запуска: https://colab.research.google.com/drive/15snXsuxOVwS6XdOjB4ULyc8HKlhlUF-u
 
-примеры конвертированных данных: todo 9.30 AM
+примеры конвертированных данных: https://drive.google.com/folderview?id=12pI20Wwv2RgdNKkEmR0_TNvMwt_UjjzJ
 
 ---
 
