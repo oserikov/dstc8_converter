@@ -11,11 +11,13 @@ from sklearn.model_selection import train_test_split
 
 from constants import *
 
+
 def clear_data_dirs():
     for fpath in glob.glob(os.path.join(DATA_DIR, "*")):
         os.remove(fpath)
     for fpath in glob.glob(os.path.join(BOT_DATA_DIR, "*")):
         os.remove(fpath)
+
 
 def get_dstc8_dialogue_files_list(dstc8_data_dir_path=DSTC8_REPO_PATH,
                                   skip_train=False, skip_test=True, skip_val=True):
