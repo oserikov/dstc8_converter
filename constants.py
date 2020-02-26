@@ -6,25 +6,9 @@ import os
 
 BOT_DATA_DIR = "my_bot"
 DATA_DIR = "my_data"
-TEMPLATES_FN = "simple-dstc2-templates.txt"
-TEMPLATES_FPATH = os.path.join(DATA_DIR, TEMPLATES_FN)
-DB_FN = "db.sqlite"
-DB_FPATH = os.path.join(BOT_DATA_DIR, DB_FN)
-RES_TRN_FN = "simple-dstc2-trn.json"
-RES_TRN_FPATH = os.path.join(DATA_DIR, RES_TRN_FN)
-RES_TST_FN = "simple-dstc2-tst.json"
-RES_TST_FPATH = os.path.join(DATA_DIR, RES_TST_FN)
-RES_VAL_FN = "simple-dstc2-val.json"
-RES_VAL_FPATH = os.path.join(DATA_DIR, RES_VAL_FN)
-SLOTFILL_DATA_FN = "slotfill.json"
-SLOTFILL_DATA_FPATH = os.path.join(BOT_DATA_DIR, SLOTFILL_DATA_FN)
-SLOTFILL_CONFIG_FN = "slotfill_config.json"
-SLOTFILL_CONFIG_FPATH = os.path.join(BOT_DATA_DIR, SLOTFILL_CONFIG_FN)
-SPEAKER_2_IDX = {"USER": 1, "SYSTEM": 2}
-IDX_2_SPEAKER = {v: k for k, v in SPEAKER_2_IDX.items()}
 
-DSTC8_REPO_PATH = "dstc8-schema-guided-dialogue"
-DOMAIN_OF_INTEREST = "Travel_1"
+DSTC8_REPO_PATH = "/Users/oleg/dstc8-schema-guided-dialogue"
+DOMAIN_OF_INTEREST = "Homes_1"
 
 """
 complete list of dstc8 domains:
@@ -64,7 +48,26 @@ complete list of dstc8 domains:
 "Travel_1",
 "Weather_1"
 """
-# endregion constants
+
+
+
+TEMPLATES_FN = "simple-dstc2-templates.txt"
+TEMPLATES_FPATH = os.path.join(DATA_DIR, TEMPLATES_FN)
+DB_FN = "db.sqlite"
+DB_FPATH = os.path.join(BOT_DATA_DIR, DB_FN)
+RES_TRN_FN = "simple-dstc2-trn.json"
+RES_TRN_FPATH = os.path.join(DATA_DIR, RES_TRN_FN)
+RES_TST_FN = "simple-dstc2-tst.json"
+RES_TST_FPATH = os.path.join(DATA_DIR, RES_TST_FN)
+RES_VAL_FN = "simple-dstc2-val.json"
+RES_VAL_FPATH = os.path.join(DATA_DIR, RES_VAL_FN)
+SLOTFILL_DATA_FN = "slotfill.json"
+SLOTFILL_DATA_FPATH = os.path.join(BOT_DATA_DIR, SLOTFILL_DATA_FN)
+SLOTFILL_CONFIG_FN = "slotfill_config.json"
+SLOTFILL_CONFIG_FPATH = os.path.join(BOT_DATA_DIR, SLOTFILL_CONFIG_FN)
+SPEAKER_2_IDX = {"USER": 1, "SYSTEM": 2}
+IDX_2_SPEAKER = {v: k for k, v in SPEAKER_2_IDX.items()}
+
 TRN_F_AFFIX = "train"
 TST_F_AFFIX = "test"
 DEV_F_AFFIX = "dev"
