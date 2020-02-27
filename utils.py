@@ -236,16 +236,16 @@ def reduce_action_replics_variance(dialogues, slot_spans):
     slot_spans_modified = []
     for dialogue, slot_spans in zip(dialogues, slot_spans):
         dialogue_modified = []
-        slot_spans_modified = []
+        dialogue_slot_spans_modified = []
         for turn_idx, turn in enumerate(dialogue):
             if 'act' in turn.keys():
                 dialogue_modified.append(act2mock_turns[turn['act']])
-                slot_spans_modified.append(act2mock_slots[turn['act']])
+                dialogue_slot_spans_modified.append(act2mock_slots[turn['act']])
             else:
                 dialogue_modified.append(turn.copy())
-                slot_spans_modified.append(slot_spans[turn_idx])
+                dialogue_slot_spans_modified.append(slot_spans[turn_idx])
         dialogues_modified.append(dialogue_modified)
-        slot_spans_modified.append(slot_spans_modified)
+        slot_spans_modified.append(dialogue_slot_spans_modified)
 
     return dialogues_modified, slot_spans_modified
 # endregion datasets modification
