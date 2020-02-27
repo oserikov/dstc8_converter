@@ -130,13 +130,13 @@ def extract_slots_spans(dstc8_dialogues):
     return dialogues_slots_spans
 
 def base_dstc8_2_dstc2(dstc_dialogues_li):
-    slot_entries = extract_slots_spans([dialogue for f_split, dialogue in dstc_dialogues_li])
+    slot_spans = extract_slots_spans([dialogue for f_split, dialogue in dstc_dialogues_li])
     dialogues_data = dstc8_dialogues_2_dstc2_dialogues(dstc_dialogues_li)
-    return dialogues_data, slot_entries
+    return dialogues_data, slot_spans
 
 # endregion dstc8 to dstc2 conversion
 
-# region data mockification
+# region datasets modification
 
 def mockify_slots_in_text(text, text_slots_spans):
     if not text_slots_spans:
@@ -221,7 +221,34 @@ def add_db_api_calls(dstc2_dialogues, dialogues_slots_spans):
         dialogues_w_api_calls_slots_spans.append(dialogue_w_api_calls_slots_spans)
     return dialogues_w_api_calls, dialogues_w_api_calls_slots_spans
 
-# endregion data mockification
+def reduce_action_replics_variance(dialogues, slot_spans):
+    act2mock_turns = dict()
+    act2mock_slots = dict()
+    for dialogue, slot_info in zip(dialogues, slot_spans):
+        for turn_idx, turn in enumerate(dialogue):
+            if 'act' in turn.keys():
+                # will end up storing the last template(slots_info) applied for act
+                act2mock_turns[turn['act']] = turn.copy()
+                act2mock_slots[turn['act']] = slot_info[turn_idx].copy()
+
+    # create the dataset applying the mappings collected above
+    dialogues_modified = []
+    slot_spans_modified = []
+    for dialogue, slot_spans in zip(dialogues, slot_spans):
+        dialogue_modified = []
+        dialogue_slot_spans_modified = []
+        for turn_idx, turn in enumerate(dialogue):
+            if 'act' in turn.keys():
+                dialogue_modified.append(act2mock_turns[turn['act']])
+                dialogue_slot_spans_modified.append(act2mock_slots[turn['act']])
+            else:
+                dialogue_modified.append(turn.copy())
+                dialogue_slot_spans_modified.append(slot_spans[turn_idx])
+        dialogues_modified.append(dialogue_modified)
+        slot_spans_modified.append(dialogue_slot_spans_modified)
+
+    return dialogues_modified, slot_spans_modified
+# endregion datasets modification
 
 # region metainfo extraction
 
