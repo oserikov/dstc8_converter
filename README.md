@@ -1,6 +1,6 @@
 # dstc8-dstc2 converter
 
-**usage example | иллюстрация запуска**: https://github.com/oserikov/dstc8_dstc2_converter/blob/master/dstc8_to_dstc2.ipynb
+**usage example | иллюстрация запуска**: https://github.com/oserikov/dstc8_dstc2_converter/blob/master/dstc8_to_dstc2.ipynb  
 **converted data exapmles | примеры конвертированных данных**: https://drive.google.com/folderview?id=12pI20Wwv2RgdNKkEmR0_TNvMwt_UjjzJ
 
 см. readme на русском ниже.
