@@ -99,7 +99,14 @@ def user_dstc8_2_dstc2_turn(dstc8_turn):
     simple_dstc2_turn["speaker"] = SPEAKER_2_IDX[dstc8_turn["speaker"]]
     simple_dstc2_turn["text"] = dstc8_turn["utterance"]
     simple_dstc2_turn["slots"] = pretty_requested_slots + slots
+    
+    actions = dstc8_turn['frames'][0]['actions']
 
+    # act: Request; slot: phone -> Request_phone
+    act = '+'.join(action['act'] + ('_' + snake_case2camel_case(action['slot'])
+                                    if action['slot'] else '')
+                   for action in actions)
+    simple_dstc2_turn["act"] = act
     return simple_dstc2_turn
 
 
