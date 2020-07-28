@@ -107,6 +107,14 @@ def user_dstc8_2_dstc2_turn(dstc8_turn):
                                     if action['slot'] else '')
                    for action in actions)
     simple_dstc2_turn["act"] = act
+
+    slots = [[action["slot"], action["values"]]
+         for action in actions]
+
+    slots = [[slot_pair[0], slot_pair[1][0]]
+         for slot_pair in slots if slot_pair[0] and slot_pair[1]]
+
+    simple_dstc2_turn["slots"] = slots
     return simple_dstc2_turn
 
 
